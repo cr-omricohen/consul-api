@@ -586,12 +586,12 @@ public class ConsulClient implements
 
 	@Override
 	public Response<GetValue> getKVValue(String key) {
-		return keyValueClient.getKVValue(key);
+		return keyValueClient.getKVValue(key, new QueryParams(ConsistencyMode.STALE));
 	}
 
 	@Override
 	public Response<GetValue> getKVValue(String key, String token) {
-		return keyValueClient.getKVValue(key, token);
+		return keyValueClient.getKVValue(key, token, new QueryParams(ConsistencyMode.STALE));
 	}
 
 	@Override
